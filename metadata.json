@@ -1,0 +1,5 @@
+{
+  "name": "AquaFlow - Fluid Painting Studio",
+  "description": "A realistic watercolor and fluid simulation painting application inspired by Rebelle. Features real-time fluid dynamics, pigment mixing, paper textures, and AI-powered inspiration.",
+  "requestFramePermissions": []
+}
