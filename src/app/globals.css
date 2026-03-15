@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 95 100% 53%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 300 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 95 40% 80%;
+    --card: 95 30% 7%;
+    --card-foreground: 95 40% 80%;
+    --popover: 95 30% 7%;
+    --popover-foreground: 95 40% 80%;
+    --primary: 95 100% 53%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 95 20% 15%;
+    --secondary-foreground: 95 20% 90%;
+    --muted: 95 20% 10%;
+    --muted-foreground: 95 25% 60%;
+    --accent: 300 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 95 100% 20%;
+    --input: 95 100% 10%;
+    --ring: 95 100% 63%;
+    --chart-1: 95 70% 50%;
+    --chart-2: 300 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .glitch-effect {
+    @apply relative;
+  }
+  .glitch-effect:hover::before,
+  .glitch-effect:hover::after {
+    content: attr(data-text);
+    @apply absolute top-0 left-0 w-full h-full bg-background;
+  }
+  .glitch-effect:hover::before {
+    @apply left-0.5;
+    text-shadow: -1px 0 hsl(var(--accent));
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  }
+  .glitch-effect:hover::after {
+    @apply -left-0.5;
+    text-shadow: -1px 0 hsl(var(--primary)), 1px 1px hsl(var(--primary));
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+  }
+
+  .claim-animation {
+    animation: scanline 0.5s linear, neon-flicker 0.5s ease-in-out;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(35% 0 63% 0); }
+  5% { clip-path: inset(87% 0 1% 0); }
+  10% { clip-path: inset(53% 0 7% 0); }
+  15% { clip-path: inset(16% 0 42% 0); }
+  20% { clip-path: inset(93% 0 3% 0); }
+  25% { clip-path: inset(48% 0 48% 0); }
+  30% { clip-path: inset(92% 0 7% 0); }
+  35% { clip-path: inset(47% 0 51% 0); }
+  40% { clip-path: inset(95% 0 4% 0); }
+  45% { clip-path: inset(25% 0 36% 0); }
+  50% { clip-path: inset(3% 0 54% 0); }
+  55% { clip-path: inset(41% 0 33% 0); }
+  60% { clip-path: inset(82% 0 16% 0); }
+  65% { clip-path: inset(43% 0 26% 0); }
+  70% { clip-path: inset(57% 0 25% 0); }
+  75% { clip-path: inset(19% 0 54% 0); }
+  80% { clip-path: inset(49% 0 44% 0); }
+  85% { clip-path: inset(9% 0 88% 0); }
+  90% { clip-path: inset(53% 0 10% 0); }
+  95% { clip-path: inset(9% 0 52% 0); }
+  100% { clip-path: inset(2% 0 92% 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(79% 0 13% 0); }
+  5% { clip-path: inset(43% 0 49% 0); }
+  10% { clip-path: inset(11% 0 54% 0); }
+  15% { clip-path: inset(88% 0 6% 0); }
+  20% { clip-path: inset(48% 0 48% 0); }
+  25% { clip-path: inset(4% 0 53% 0); }
+  30% { clip-path: inset(34% 0 36% 0); }
+  35% { clip-path: inset(71% 0 21% 0); }
+  40% { clip-path: inset(21% 0 72% 0); }
+  45% { clip-path: inset(89% 0 1% 0); }
+  50% { clip-path: inset(36% 0 27% 0); }
+  55% { clip-path: inset(86% 0 12% 0); }
+  60% { clip-path: inset(50% 0 48% 0); }
+  65% { clip-path: inset(9% 0 85% 0); }
+  70% { clip-path: inset(87% 0 1% 0); }
+  75% { clip-path: inset(57% 0 19% 0); }
+  80% { clip-path: inset(18% 0 52% 0); }
+  85% { clip-path: inset(88% 0 11% 0); }
+  90% { clip-path: inset(5% 0 87% 0); }
+  95% { clip-path: inset(53% 0 39% 0); }
+  100% { clip-path: inset(74% 0 2% 0); }
+}
+
+@keyframes scanline {
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0), 0 0 10px hsl(var(--primary));
+  }
+  50% {
+    box-shadow: inset 0 0 200px 100px hsla(var(--primary), 0.5), 0 0 20px hsl(var(--primary));
+  }
+  100% {
+    box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0), 0 0 10px hsl(var(--primary));
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 100% {
+    opacity: 1;
+    border-color: hsl(var(--primary));
+  }
+  50% {
+    opacity: 0.7;
+    border-color: hsla(var(--primary), 0.7);
+  }
+}
